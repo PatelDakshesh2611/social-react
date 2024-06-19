@@ -1,0 +1,11 @@
+.navtext{
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.navtext:hover{
+  color: red;
+}
+.line{
+  text-decoration: underline;
+  color: darkgray;
+}
