@@ -74,8 +74,9 @@ const [following,serfollowing]=useState([])
           "Content-Type":"multipart/form-data"
         }
       })
+      const data=JSON.parse(localStorage.getItem('userdata'));
       setudata({...usersdata,avatar:res.data.avatar})
-      localStorage.setItem('userdata',JSON.stringify({...usersdata,avatar:res.data.avatar}))
+      localStorage.setItem('userdata',JSON.stringify({...data,avatar:res.data.avatar}))
       getmypost()
       setimageloader(0)
     }catch(e){

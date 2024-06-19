@@ -42,7 +42,12 @@ const handleregister=async(e)=>{
               props.setid(res.data.data._id)
               props.setudata(res.data.data)
               localStorage.setItem('id',res.data.data._id)
-              localStorage.setItem('userdata',JSON.stringify(res.data.data))
+              const data={
+                avatar:res.data.data.avatar,
+                name:res.data.data.name,
+                _id:res.data.data._id
+              }
+              localStorage.setItem('userdata',JSON.stringify(data))
               
               nav('/showpost')
               }
@@ -86,7 +91,13 @@ const handlelogin=async(e)=>{
             props.setid(res.data.data._id)
             props.setudata(res.data.data)
             localStorage.setItem('id',res.data.data._id)
-            localStorage.setItem('userdata',JSON.stringify(res.data.data))
+            console.log(res.data.data)
+            const data={
+              avatar:res.data.data.avatar,
+              name:res.data.data.name,
+              _id:res.data.data._id
+            }
+            localStorage.setItem('userdata',JSON.stringify(data))
             nav('/showpost')
             setspinner2(0)
           }
