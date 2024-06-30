@@ -33,7 +33,7 @@ const Notification = (props) => {
       {
         noti.length>0?noti.map((u)=>{
           return <>
-            <Notificationcard noti={noti} getnotification={getnotification} setnoti={setnoti} user={u} id={props.userdata._id}></Notificationcard>
+            <Notificationcard noti={noti} getnotification={getnotification} setnoti={setnoti} user={u} id={props.userdata._id} connection={props.connection}></Notificationcard>
           </>
         }):<Text>No friend request</Text>
       }
