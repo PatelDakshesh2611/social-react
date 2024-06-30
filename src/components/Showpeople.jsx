@@ -38,7 +38,7 @@ const Showpeople = (props) => {
       ) : isError ? (
         <Text>Error occurred while fetching data</Text>
       ) : filteredPeople?.length > 0 ? (
-        filteredPeople.map(u => <Peoplecard key={u.id} user={u} getpeople={refetch} status={u.status} id={props.id} />)
+        filteredPeople.map(u => <Peoplecard key={u.id} user={u} getpeople={refetch} status={u.status} id={props.id} connection={props.connection} />)
       ) : (
         <Text>No result found for your search</Text>
       )}
