@@ -10,7 +10,7 @@ const Notification = (props) => {
     const getnotification=async()=>{
      try{
       setloader(1)
-      const res=await axios.get(`https://socialmedia-node-84id.onrender.com/getnotifications/${props.userdata._id}`)
+      const res=await axios.get(`${props.connection}/getnotifications/${props.userdata._id}`)
       setnoti(res.data.notidata)
       setloader(0)
      }catch(e){

@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import swal from "sweetalert";
 
-const Profile = ({usersdata,setudata,imageloader,setimageloader,setid}) => {
+const Profile = ({usersdata,setudata,imageloader,setimageloader,setid,connection}) => {
 const nav=useNavigate()
 const [followers,setfollwers]=useState([])
 const [following,serfollowing]=useState([])
@@ -42,7 +42,7 @@ const [following,serfollowing]=useState([])
   
   const getfollowers=async()=>{
    try{
-    const res=await axios.get(`https://socialmedia-node-84id.onrender.com/getfollowers/${usersdata._id}`)
+    const res=await axios.get(`${connection}/getfollowers/${usersdata._id}`)
     setfollwers(res.data.followers)
     serfollowing(res.data.following)
    }catch(e){
@@ -52,7 +52,7 @@ const [following,serfollowing]=useState([])
   const getmypost=async()=>{
      try{
       setloader(1)
-     const res=await axios.get(`https://socialmedia-node-84id.onrender.com/getmypost/${usersdata._id}`)
+     const res=await axios.get(`${connection}/getmypost/${usersdata._id}`)
      setpostdata(res.data.postdata)
     setloader(0)
     }
@@ -69,7 +69,7 @@ const [following,serfollowing]=useState([])
         id:usersdata._id
       }
       setimageloader(1)
-      const res=await axios.post('https://socialmedia-node-84id.onrender.com/saveprofileimage',filedata,{
+      const res=await axios.post(`${connection}/saveprofileimage`,filedata,{
         headers:{
           "Content-Type":"multipart/form-data"
         }

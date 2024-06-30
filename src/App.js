@@ -11,6 +11,12 @@ const App = () => {
     settoggle(value)
     localStorage.setItem('toggle',value)
   }
+
+  // Api connection string
+  const connectionString="https://socialmedia-node-84id.onrender.com"
+
+  // http://localhost:4000
+  // https://socialmedia-node-84id.onrender.com
   const [usersdata,setudata]=useState({
     _id:'',
     name:'',
@@ -36,7 +42,7 @@ const [imageloader,setimageloader]=useState(0)
   return (
     <div>
      {id?  <Navbar toggle={toggle} settoggle={settoogle} imageloader={imageloader} avatar={usersdata.avatar} name={usersdata.name}></Navbar>:''}
-      <Allroutes id={id} imageloader={imageloader} setimageloader={setimageloader} setid={setid} usersdata={usersdata} setudata={setudata}></Allroutes>
+      <Allroutes connectionString={connectionString} id={id} imageloader={imageloader} setimageloader={setimageloader} setid={setid} usersdata={usersdata} setudata={setudata}></Allroutes>
     </div>
   )
 }

@@ -19,7 +19,7 @@ const Homepage = (props) => {
 
   // Fetch post data using React Query
   const { data: postdata, isLoading, isError, refetch } = useQuery(['getPosts', props.id], () =>
-    axios.get(`https://socialmedia-node-84id.onrender.com/getpost/${props.id}`).then((res) => res.data.postdata).catch((e)=>{console.log(e)})
+    axios.get(`${props.connection}/getpost/${props.id}`).then((res) => res.data.postdata).catch((e)=>{console.log(e)})
   );
 
   // Show the button when the user scrolls down
@@ -60,6 +60,7 @@ const Homepage = (props) => {
                     description={u.caption}
                     comments={u.comments}
                     likescount={u.likescount}
+                    connection={props.connection}
                   />
                 ))}
                 <button id="scrollToTopBtn" className={isVisible ? 'show' : 'hide'} onClick={scrollToTop}>

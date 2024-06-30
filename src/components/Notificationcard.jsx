@@ -3,7 +3,7 @@ import { Box, Flex, Avatar, Text, Button, useColorModeValue } from "@chakra-ui/r
 import axios from "axios";
 import swal from "sweetalert";
 
-const Peoplecard = ({ user,id,setnoti,noti,getnotficaion }) => {
+const Peoplecard = ({ user,id,setnoti,noti,getnotficaion,connection }) => {
  
   const acceptreject=async(requestfor)=>{
     try{
@@ -13,7 +13,7 @@ const Peoplecard = ({ user,id,setnoti,noti,getnotficaion }) => {
       friendid:user._id,
       requestfor
     }
-   const res=await axios.post('https://socialmedia-node-84id.onrender.com/acceptorreject',datatosend)
+   const res=await axios.post(`${connection}/acceptorreject`,datatosend)
    if(res.data.message=='ok'){
         const update=noti.filter((u)=>{
           return u._id!==friendid

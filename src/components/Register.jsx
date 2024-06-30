@@ -34,7 +34,7 @@ const handleregister=async(e)=>{
           else{
              try{
               setspinner(1)
-              const res=await axios.post('https://socialmedia-node-84id.onrender.com/register',formdata)
+              const res=await axios.post(`${props.connection}/register`,formdata)
               if(res.data.message==="loggeinuser"){
                 swal("you're already a loggedin user")
               }
@@ -82,7 +82,7 @@ const handlelogin=async(e)=>{
       else{
         try{
           setspinner2(1)
-          const res=await axios.post('https://socialmedia-node-84id.onrender.com/login',logindata)
+          const res=await axios.post(`${props.connection}/login`,logindata)
           if(res.data.message==='not a user'){
             swal("you're not a valid user or check your email password again")
             setspinner2(0)

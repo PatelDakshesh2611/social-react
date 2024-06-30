@@ -51,7 +51,7 @@ const CreatePost = (props) => {
      }
       try{
         setloader(1)
-        const res=await axios.post('https://socialmedia-node-84id.onrender.com/createpost',formdata,{
+        const res=await axios.post(`${props.connection}/createpost`,formdata,{
           headers:{
             "Content-Type":"multipart/form-data"
           }

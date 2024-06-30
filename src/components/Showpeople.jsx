@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Text, Spinner } from '@chakra-ui/react';
+import { Text, Spinner, Input, Flex } from '@chakra-ui/react';
 import Peoplecard from './Peoplecard';
 import axios from 'axios';
 import swal from 'sweetalert';
@@ -10,7 +10,7 @@ const Showpeople = (props) => {
 
   // Fetch people data using React Query
   const { data: people, isLoading, isError, refetch } = useQuery(['getPeople', props.id], async () => {
-    const res = await axios.get(`https://socialmedia-node-84id.onrender.com/getpeople/${props.id}`);
+    const res = await axios.get(`${props.connection}/getpeople/${props.id}`);
     return res.data.people;
   });
 
@@ -26,11 +26,11 @@ const Showpeople = (props) => {
   }, [props.id, refetch]);
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
-      <input
+    <Flex style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+      <Input
         onChange={handleSearchChange}
         placeholder='Search for friends'
-        style={{ border: '2px solid grey', width: '30vw', height: '8vh', borderRadius: '7px', fontSize: '20px', textAlign: 'center' }}
+        width={['100vw','40vw','35vw','30vw']}
         type="text"
       />
       {isLoading ? (
@@ -42,7 +42,7 @@ const Showpeople = (props) => {
       ) : (
         <Text>No result found for your search</Text>
       )}
-    </div>
+    </Flex>
   );
 };
 
