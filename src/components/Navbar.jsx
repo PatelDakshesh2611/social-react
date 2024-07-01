@@ -19,7 +19,7 @@ const Navbar = (props) => {
         <Spacer />
         <Flex alignItems="center">
           {/* <IconButton aria-label="Toggle color mode" icon={colorMode === "light" ? <MoonIcon /> : <SunIcon />} onClick={toggleColorMode} mr="4" /> */}
-          <Text fontSize={['2.4vw','2.2vw','1.5vw','1vw']} fontWeight={'bold'} mr={'30px'}>Welcome {props.name}</Text>
+          <Text fontSize={['2.4vw','2.2vw','2vw','1vw']} fontWeight={'bold'} mr={'30px'}>Welcome {props.name}</Text>
          {
           props.imageloader?<Spinner></Spinner>:<>
            {
