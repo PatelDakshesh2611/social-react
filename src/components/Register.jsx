@@ -9,6 +9,7 @@ const nav=useNavigate()
 useEffect(()=>{
   props.setid('')
 })
+console.log(props.connection)
 const [spinner,setspinner]=useState(0)
 const[spinner2,setspinner2]=useState(0)
 //Form Data

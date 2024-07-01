@@ -15,11 +15,11 @@ const Navbar = (props) => {
     <div>
     <Box  bg={bg} color={color} boxShadow="md" px="4" mb={'50px'}>
       <Flex h="16" alignItems="center" justifyContent="space-between">
-        <Text fontSize="xl" fontWeight="bold">Connectify By Dakshesh</Text>
+        <Text fontSize={['2.4vw','2.2vw','1.5vw','1vw']} fontWeight="bold">Connectify By Dakshesh</Text>
         <Spacer />
         <Flex alignItems="center">
           {/* <IconButton aria-label="Toggle color mode" icon={colorMode === "light" ? <MoonIcon /> : <SunIcon />} onClick={toggleColorMode} mr="4" /> */}
-          <Text fontWeight={'bold'} mr={'30px'}>Welcome {props.name}</Text>
+          <Text fontSize={['2.4vw','2.2vw','1.5vw','1vw']} fontWeight={'bold'} mr={'30px'}>Welcome {props.name}</Text>
          {
           props.imageloader?<Spinner></Spinner>:<>
            {

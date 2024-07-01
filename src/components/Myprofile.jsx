@@ -140,7 +140,7 @@ useEffect(()=>{
                  {
                   postdata.map((u)=>{
                     return(
-                      <Postcard userdata={usersdata} handlegetpost={getmypost} postid={u._id} userid={usersdata._id} likes={u.likes} image={u.image.url}  user={u.user} likesstatus={u.likestatus} createdat={u.createdAt} description={u.caption} comments={u.comments} likescount={u.likescount}></Postcard>
+                      <Postcard connection={connection} userdata={usersdata} handlegetpost={getmypost} postid={u._id} userid={usersdata._id} likes={u.likes} image={u.image.url}  user={u.user} likesstatus={u.likestatus} createdat={u.createdAt} description={u.caption} comments={u.comments} likescount={u.likescount}></Postcard>
                     )
                   })
                  }

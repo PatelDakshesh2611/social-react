@@ -13,7 +13,7 @@ const Allroutes = (props) => {
     <div>
       <Routes>
         {
-          props.usersdata._id && props.id ? <Route path='/' element={<Homepage usersdata={props.usersdata} connection={props.connectionString} id={props.id} />}></Route> : <Route path='/' element={<Register setid={props.setid} setudata={props.setudata} />}></Route>
+          props.usersdata._id && props.id ? <Route path='/' element={<Homepage usersdata={props.usersdata} connection={props.connectionString} id={props.id} />}></Route> : <Route path='/' element={<Register setid={props.setid} connection={props.connectionString} setudata={props.setudata} />}></Route>
         }
         <Route path='/login' element={<Register connection={props.connectionString} setid={props.setid} setudata={props.setudata} />}></Route>
         <Route element={<Protectedroutes  id={props.id} data={props.usersdata} />}>
