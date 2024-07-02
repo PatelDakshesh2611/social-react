@@ -34,7 +34,7 @@ const Showpeople = (props) => {
         type="text"
       />
       {isLoading ? (
-        <Spinner />
+        <Spinner size={['sm','sm','xl','xl']} />
       ) : isError ? (
         <Text>Error occurred while fetching data</Text>
       ) : filteredPeople?.length > 0 ? (

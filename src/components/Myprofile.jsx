@@ -132,9 +132,9 @@ useEffect(()=>{
     <Box mt={"10vh"}  bg={bg} color={color} w="full" h="100%" overflow="hidden">
      
      <div  style={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center'}}>
-      <Text as={'bold'} fontSize={'6xl'}>My posts</Text>
+      <Text as={'bold'} fontSize={['3xl','3xl','6xl','6xl']}>My posts</Text>
          {
-          loader?<Spinner size={'xl'}></Spinner>:<>
+          loader?<Spinner size={['sm','sm','xl','xl']}></Spinner>:<>
               {
                 postdata.length>0?<>
                  {

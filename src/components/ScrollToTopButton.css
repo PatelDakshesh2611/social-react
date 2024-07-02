@@ -1,7 +1,7 @@
 /* ScrollToTopButton.css */
 #scrollToTopBtn {
     position: fixed;
-    bottom: 20px;
+    bottom: 90px;
     right: 20px;
     background-color: grey;
     color: #fff;

@@ -27,7 +27,7 @@ const Notification = (props) => {
         noti.length>0? <Text as={'bold'} fontSize={'large'}>Requests from friends</Text>:''
        }
       {
-      loader?<Spinner>
+      loader?<Spinner size={['sm','sm','xl','xl']}>
       
       </Spinner>:<>
       {

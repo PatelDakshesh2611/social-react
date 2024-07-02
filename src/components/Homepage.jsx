@@ -38,7 +38,7 @@ const Homepage = (props) => {
     <div>
       <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
         {isLoading ? (
-          <Spinner size={'xl'} />
+          <Spinner size={['sm','sm','xl','xl']} />
         ) : isError ? (
           <Text>Error occurred while fetching data</Text>
         ) : (

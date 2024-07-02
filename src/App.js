@@ -3,6 +3,8 @@ import './App.css'
 import Navbar from './components/Navbar'
 import Allroutes from './components/Allroutes'
 import { useNavigate } from 'react-router-dom'
+import BottomNavbar from './components/BottomNavbar'
+import { useBreakpointValue } from '@chakra-ui/react';
 const App = () => {
   const nav=useNavigate()
   const [id,setid]=useState('')
@@ -34,14 +36,26 @@ const App = () => {
       }
     }
   }
-
+  const NavbarComponent = useBreakpointValue({
+    base: BottomNavbar,
+    md: BottomNavbar,
+    lg: Navbar,
+  });
  useEffect(()=>{
    checker()
  },[])
 const [imageloader,setimageloader]=useState(0)
   return (
-    <div>
-     {id?  <Navbar toggle={toggle} settoggle={settoogle} imageloader={imageloader} avatar={usersdata.avatar} name={usersdata.name}></Navbar>:''}
+    <div>  
+    {id && NavbarComponent && (
+        <NavbarComponent
+          toggle={toggle}
+          settoggle={settoogle}
+          imageloader={imageloader}
+          avatar={usersdata.avatar}
+          name={usersdata.name}
+        />
+      )}   
       <Allroutes connectionString={connectionString} id={id} imageloader={imageloader} setimageloader={setimageloader} setid={setid} usersdata={usersdata} setudata={setudata}></Allroutes>
     </div>
   )
