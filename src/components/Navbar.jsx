@@ -24,14 +24,14 @@ const Navbar = (props) => {
           props.imageloader?<Spinner></Spinner>:<>
            {
             props.avatar && props.avatar.url? <>
-            <Avatar name={props.name} src={props.avatar.url}></Avatar>
+            <Avatar height={['44px','46px','46px','50px']} name={props.name} src={props.avatar.url}></Avatar>
             </>:<>
             <Avatar name={props.name} ></Avatar>
             </>
           }</>
          }
          
-          <IconButton aria-label="Toggle menu" icon={show ? <CloseIcon /> : <HamburgerIcon />} onClick={toggleMenu} />
+          <IconButton height={['30px','39px','40px','40px']} ml={['10px','10px','10px','10px']}  aria-label="Toggle menu" icon={show ? <CloseIcon /> : <HamburgerIcon />} onClick={toggleMenu} />
         </Flex>
       </Flex>
       {show && (
