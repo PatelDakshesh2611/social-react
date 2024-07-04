@@ -4,7 +4,7 @@ import Postcard from './Postcard';
 import axios from 'axios';
 import swal from 'sweetalert';
 import './ScrollToTopButton.css';
-import { Spinner, Text } from '@chakra-ui/react';
+import { Flex, Spinner, Text } from '@chakra-ui/react';
 import { useQuery } from 'react-query';
 
 const Homepage = (props) => {
@@ -36,7 +36,7 @@ const Homepage = (props) => {
 
   return (
     <div>
-      <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+      <Flex flexDirection={'column'} mt={['10px','10px','0px','0px']} justifyContent={'center'} alignItems={'center'}>
         {isLoading ? (
           <Spinner size={['sm','sm','xl','xl']} />
         ) : isError ? (
@@ -72,7 +72,7 @@ const Homepage = (props) => {
             )}
           </>
         )}
-      </div>
+      </Flex>
     </div>
   );
 };

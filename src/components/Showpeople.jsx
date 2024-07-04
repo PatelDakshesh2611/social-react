@@ -14,19 +14,21 @@ const Showpeople = (props) => {
     return res.data.people;
   });
 
+  
   // Function to filter people based on search term
   const filteredPeople = people?.filter(u => u.name.toLowerCase().includes(searchTerm.toLowerCase()));
-
+  // console.log(filteredPeople)
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
   };
-
+ 
+  
   useEffect(() => {
     refetch(); // Refetch data when component mounts or props change
   }, [props.id, refetch]);
 
   return (
-    <Flex style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+    <Flex flexDirection={"column"} alignItems={'center'} mt={['9px','9px','','']} mb={['60px','60px','','']}>
       <Input
         onChange={handleSearchChange}
         placeholder='Search for friends'
@@ -38,7 +40,7 @@ const Showpeople = (props) => {
       ) : isError ? (
         <Text>Error occurred while fetching data</Text>
       ) : filteredPeople?.length > 0 ? (
-        filteredPeople.map(u => <Peoplecard key={u.id} user={u} getpeople={refetch} status={u.status} id={props.id} connection={props.connection} />)
+        filteredPeople.map(u => <Peoplecard key={u._id} user={u} getpeople={refetch} status={u.status} id={props.id} connection={props.connection} />)
       ) : (
         <Text>No result found for your search</Text>
       )}

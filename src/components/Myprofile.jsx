@@ -129,10 +129,10 @@ useEffect(()=>{
   };
 
   return (
-    <Box mt={"10vh"}  bg={bg} color={color} w="full" h="100%" overflow="hidden">
+    <Box mt={['3vh','3vh','10vh','10vh']}  bg={bg} color={color} w="full" h="100%" overflow="hidden">
      
      <div  style={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center'}}>
-      <Text as={'bold'} fontSize={['3xl','3xl','6xl','6xl']}>My posts</Text>
+      <Text as={'bold'} fontSize={['2xl','2xl','6xl','6xl']}>My posts</Text>
          {
           loader?<Spinner size={['sm','sm','xl','xl']}></Spinner>:<>
               {
@@ -140,7 +140,7 @@ useEffect(()=>{
                  {
                   postdata.map((u)=>{
                     return(
-                      <Postcard connection={connection} userdata={usersdata} handlegetpost={getmypost} postid={u._id} userid={usersdata._id} likes={u.likes} image={u.image.url}  user={u.user} likesstatus={u.likestatus} createdat={u.createdAt} description={u.caption} comments={u.comments} likescount={u.likescount}></Postcard>
+                      <Postcard key={u._id} connection={connection} userdata={usersdata} handlegetpost={getmypost} postid={u._id} userid={usersdata._id} likes={u.likes} image={u.image.url}  user={u.user} likesstatus={u.likestatus} createdat={u.createdAt} description={u.caption} comments={u.comments} likescount={u.likescount}></Postcard>
                     )
                   })
                  }

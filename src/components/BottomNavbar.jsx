@@ -43,8 +43,7 @@ const BottomNavbar = ({ toggle, settoggle, imageloader, avatar, name }) => {
           onClick={() => handleNavigation('/getnotifications', 'getnotifications')}
         />
         <Flex align="center" onClick={() => handleNavigation('/myprofile', 'myprofile')} cursor="pointer">
-          {imageloader ? <Spinner /> : <Avatar name={name} src={avatar?.url} />}
-          
+          {imageloader ? <Spinner /> : <Avatar w={'27px'} h={'27px'} name={name} src={avatar?.url} />}          
         </Flex>
       </Flex>
     </Box>

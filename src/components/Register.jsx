@@ -9,7 +9,6 @@ const nav=useNavigate()
 useEffect(()=>{
   props.setid('')
 })
-console.log(props.connection)
 const [spinner,setspinner]=useState(0)
 const[spinner2,setspinner2]=useState(0)
 //Form Data
@@ -91,8 +90,7 @@ const handlelogin=async(e)=>{
           else{
             props.setid(res.data.data._id)
             props.setudata(res.data.data)
-            localStorage.setItem('id',res.data.data._id)
-            console.log(res.data.data)
+            localStorage.setItem('id',res.data.data._id)            
             const data={
               avatar:res.data.data.avatar,
               name:res.data.data.name,

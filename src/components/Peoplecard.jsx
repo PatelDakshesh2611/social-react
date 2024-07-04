@@ -4,6 +4,7 @@ import axios from "axios";
 import swal from "sweetalert";
 
 const Peoplecard = ({ user, id, status, getpeople, connection }) => {
+  
   const [followallow, setfollowallow] = useState(status);
   const bg = useColorModeValue("white", "gray.800");
   const color = useColorModeValue("gray.800", "white");
