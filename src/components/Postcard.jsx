@@ -3,6 +3,7 @@ import { Box, Button, Flex, Avatar, Text, useColorModeValue, useDisclosure, Moda
 import { ChatIcon, ChevronUpIcon, ChevronDownIcon, DeleteIcon } from "@chakra-ui/icons";
 import axios from "axios";
 import swal from "sweetalert";
+import 'animate.css';
 
 const Post = ({ user, image, description, likes, comments, createdat, userid, postid, handlegetpost, userdata, likesstatus, likescount, connection }) => {
   const [likesnumber, setlikesnumber] = useState(likescount);
@@ -19,6 +20,7 @@ const Post = ({ user, image, description, likes, comments, createdat, userid, po
   const [likesse, setlikes] = useState(likes);
   const [likesloader, setlikeloader] = useState(0);
   const [commentloadern, setcommentloadern] = useState(0);
+  const [showHeart, setShowHeart] = useState(false);
 
   const handleLike = async () => {
     try {
@@ -37,6 +39,8 @@ const Post = ({ user, image, description, likes, comments, createdat, userid, po
         if (response.data.message === 'add') {
           setlikes([...likesse, response.data.data]);
           setlikesnumber(likesnumber + 1);
+          setShowHeart(true);
+          setTimeout(() => setShowHeart(false), 1200);
           setlikeloader(0);
         } else {
           const updatedlikes = likesse.filter((u) => {
@@ -123,7 +127,10 @@ const Post = ({ user, image, description, likes, comments, createdat, userid, po
   };
 
   return (
-    <Box mb="50" bg={bg} color={color} border="1px solid grey" w="full" maxW="600px" p="4" boxShadow="md" borderRadius="md">
+    <Box onDoubleClick={handleLike} mb="50" bg={bg} color={color} border="1px solid grey" w="full" maxW="600px" p="4" boxShadow="md" borderRadius="md" position="relative">
+      {showHeart && <Box className="animate__animated animate__heartBeat" position="absolute" top="50%" left="50%" transform="translate(-50%, -50%)" zIndex="1">
+        <Text fontSize="4xl" color="red.500">❤️</Text>
+      </Box>}
       <Flex alignItems="center" flexDirection={['column', 'column', 'row']}>
         {user.avatar && user.avatar.url ? <Avatar src={user.avatar.url} alt={user.name} /> : <Avatar name={user.name}></Avatar>}
         <Text ml={["0", "0", "4"]} mt={["2", "2", "0"]} fontWeight="bold">{user.name}</Text>
