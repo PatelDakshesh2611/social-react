@@ -3,6 +3,7 @@ import { Box, Flex, Spacer, Text, IconButton, useColorModeValue,Avatar, Spinner 
 import './navbar.css'
 import { Link } from "react-router-dom";
 import { HamburgerIcon, CloseIcon  } from "@chakra-ui/icons";
+import ToggleDarkModeButton from "./ToggleDarkModeButton";
 
 const Navbar = (props) => {
   
@@ -16,6 +17,7 @@ const Navbar = (props) => {
     <Box  bg={bg} color={color} boxShadow="md" px="4" mb={'50px'}>
       <Flex h="16" alignItems="center" justifyContent="space-between">
         <Text fontSize={['3.3vw','3.3vw','1.5vw','1.5vw']} fontWeight="semibold">Connectify</Text>
+        <Flex ml={'10px'}><ToggleDarkModeButton /></Flex>
         <Spacer />
         <Flex alignItems="center">
           {/* <IconButton aria-label="Toggle color mode" icon={colorMode === "light" ? <MoonIcon /> : <SunIcon />} onClick={toggleColorMode} mr="4" /> */}
