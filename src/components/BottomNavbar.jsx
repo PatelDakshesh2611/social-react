@@ -44,10 +44,12 @@ const BottomNavbar = ({ toggle, settoggle, imageloader, avatar, name }) => {
           isActive={toggle === 'getnotifications'}
           onClick={() => handleNavigation('/getnotifications', 'getnotifications')}
         />
-        <Flex align="center" onClick={() => handleNavigation('/myprofile', 'myprofile')} cursor="pointer">
+       <Flex>
+       <Flex align="center" onClick={() => handleNavigation('/myprofile', 'myprofile')} cursor="pointer">
           {imageloader ? <Spinner /> : <Avatar w={'27px'} h={'27px'} name={name} src={avatar?.url} />}          
-          <Flex><ToggleDarkModeButton/></Flex>
         </Flex>
+          <Flex ml={'6px'}><ToggleDarkModeButton/></Flex>
+       </Flex>
       </Flex>
     </Box>
   );
