@@ -36,9 +36,11 @@ const Homepage = (props) => {
 
   return (
     <div>
-      <Flex flexDirection={'column'} mt={['10px','10px','0px','0px']} justifyContent={'center'} alignItems={'center'}>
+      <Flex  flexDirection={'column'} mt={['10px','10px','0px','0px']} justifyContent={'center'} alignItems={'center'}>
         {isLoading ? (
-          <Spinner size={['sm','sm','xl','xl']} />
+         <Flex  width={'100%'} height={'75vh'} alignItems={'center'} justifyContent={'center'}>
+           <Spinner  size={['sm','sm','xl','xl']} />
+         </Flex>
         ) : isError ? (
           <Text>Error occurred while fetching data</Text>
         ) : (

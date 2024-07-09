@@ -23,6 +23,7 @@ const Allroutes = (props) => {
           <Route path='/showpeople' element={<Showpeople connection={props.connectionString} id={props.id} />}></Route>
           <Route path='/getnotifications' element={<Notification connection={props.connectionString} userdata={props.usersdata} />}></Route>
         </Route>
+        {/* <Route path='*' element={</>}>dicklesh</Route> */}
       </Routes>
     </div>
   )

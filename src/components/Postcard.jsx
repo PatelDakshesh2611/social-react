@@ -127,7 +127,7 @@ const Post = ({ user, image, description, likes, comments, createdat, userid, po
   };
 
   return (
-    <Box onDoubleClick={handleLike} mb="50" bg={bg} color={color} border="1px solid grey" w="full" maxW="600px" p="4" boxShadow="md" borderRadius="md" position="relative">
+    <Box  onDoubleClick={handleLike} mb="50" bg={bg} color={color} border="1px solid grey" w="full" maxW="600px" p="4" boxShadow="md" borderRadius="md" position="relative">
       {showHeart && <Box className="animate__animated animate__heartBeat" position="absolute" top="50%" left="50%" transform="translate(-50%, -50%)" zIndex="1">
         <Text fontSize="4xl" color="red.500">❤️</Text>
       </Box>}
