@@ -109,13 +109,15 @@ const Homepage = (props) => {
             <button id="scrollToTopBtn" className={isVisible ? 'show' : 'hide'} onClick={scrollToTop}>
               <ArrowUpIcon />
             </button>
-            <Flex mb={['80px','80px','0px','0px']} ref={loadMoreRef} />
+            <Flex  mb={['90px', '90px', '0px', '0px']} ref={loadMoreRef}>
             {isFetchingNextPage && (
               <Text>Loading more...</Text>
             )}
             {!hasNextPage && (
               <Text>No more posts</Text>
             )}
+            </Flex>
+         
           </>
         )}
       </Flex>
