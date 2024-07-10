@@ -4,20 +4,25 @@ import './index.css';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { ChakraProvider,ColorModeScript } from '@chakra-ui/react';
+import { ChakraProvider, ColorModeScript } from '@chakra-ui/react';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+
+// Initialize the QueryClient instance
 const queryClient = new QueryClient();
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-    <ChakraProvider>
     <QueryClientProvider client={queryClient}>
-    <ColorModeScript initialColorMode="light" />
-      <App />
+      <ChakraProvider>
+        <BrowserRouter>
+          <ColorModeScript initialColorMode="light" />
+          <App />      
+        </BrowserRouter>
+      </ChakraProvider>
     </QueryClientProvider>
-    </ChakraProvider>
-    </BrowserRouter>
   </React.StrictMode>
 );
 

@@ -4,7 +4,7 @@ import axios from "axios";
 import { AddIcon } from "@chakra-ui/icons";
 import swal from "sweetalert";
 import { Spinner } from "@chakra-ui/react";
-
+import { useQueryClient } from "react-query";
 const CreatePost = (props) => {
   const[loader,setloader]=useState(0)
   const [image, setImage] = useState(null); 
@@ -13,6 +13,7 @@ const CreatePost = (props) => {
   const [description, setDescription] = useState(""); // The state to store the description
   const bg = useColorModeValue("white", "gray.800"); // The background color based on the color mode
   const color = useColorModeValue("gray.800", "white"); // The text color based on the color mode
+  const queryClient=useQueryClient();
 
   // A function to handle the image selection
   const handleImageChange = (e) => {
@@ -59,6 +60,7 @@ const CreatePost = (props) => {
         setloader(0)
         setImage(null);
         setDescription("");
+        queryClient.invalidateQueries('getPosts')
         if(res.data.message==='Image uploaded successfully'){
           swal('Post uploaded successfully')
         }

@@ -4,6 +4,7 @@ import { ChatIcon, ChevronUpIcon, ChevronDownIcon, DeleteIcon } from "@chakra-ui
 import axios from "axios";
 import swal from "sweetalert";
 import 'animate.css';
+import { useQueryClient } from "react-query";
 
 const Post = ({ user, image, description, likes, comments, createdat, userid, postid, handlegetpost, userdata, likesstatus, likescount, connection }) => {
   const [likesnumber, setlikesnumber] = useState(likescount);
@@ -21,7 +22,7 @@ const Post = ({ user, image, description, likes, comments, createdat, userid, po
   const [likesloader, setlikeloader] = useState(0);
   const [commentloadern, setcommentloadern] = useState(0);
   const [showHeart, setShowHeart] = useState(false);
-
+  const queryClient=useQueryClient();
   const handleLike = async () => {
     try {
       const datatosend = {
@@ -53,6 +54,9 @@ const Post = ({ user, image, description, likes, comments, createdat, userid, po
         setLiked(!liked);
         setlikeloader(0);
       }
+      queryClient.invalidateQueries({
+        queryKey:['getPosts']
+      })
     } catch (e) {
       swal('Error occured at backend');
       console.log(e);
