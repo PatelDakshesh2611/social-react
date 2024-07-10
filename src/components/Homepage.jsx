@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { ArrowUpIcon } from '@chakra-ui/icons';
 import Postcard from './Postcard';
 import axios from 'axios';
-import { Flex, Spinner, Text, Button } from '@chakra-ui/react';
+import { Flex, Spinner, Text, Button, Box, Skeleton, SkeletonText } from '@chakra-ui/react';
 import { useInfiniteQuery } from 'react-query';
 
 const Homepage = (props) => {
@@ -77,8 +77,13 @@ const Homepage = (props) => {
     <div>
       <Flex flexDirection={'column'} mt={['10px', '10px', '0px', '0px']} justifyContent={'center'} alignItems={'center'}>
         {isLoading ? (
-          <Flex width={'100%'} height={'75vh'} alignItems={'center'} justifyContent={'center'}>
-            <Spinner size={['sm', 'sm', 'xl', 'xl']} />
+          <Flex flexDirection={'column'} width={'100%'}  alignItems={'center'} justifyContent={'center'}>
+            {[...Array(5)].map((_, index) => (
+              <Box key={index} mb={6} p={4} w={['100%','100%','600px','600px']} boxShadow="md" rounded="md" bg="white" >
+                <Skeleton height="320px" />
+                <SkeletonText mt="4" noOfLines={2} spacing="4" />
+              </Box>
+            ))}
           </Flex>
         ) : isError ? (
           <Text>Error occurred while fetching data</Text>
@@ -109,15 +114,14 @@ const Homepage = (props) => {
             <button id="scrollToTopBtn" className={isVisible ? 'show' : 'hide'} onClick={scrollToTop}>
               <ArrowUpIcon />
             </button>
-            <Flex  mb={['90px', '90px', '0px', '0px']} ref={loadMoreRef}>
-            {isFetchingNextPage && (
-              <Text>Loading more...</Text>
-            )}
-            {!hasNextPage && (
-              <Text>No more posts</Text>
-            )}
+            <Flex mb={['90px', '90px', '0px', '0px']} ref={loadMoreRef}>
+              {isFetchingNextPage && (
+                <Text>Loading more...</Text>
+              )}
+              {!hasNextPage && (
+                <Text>No more posts</Text>
+              )}
             </Flex>
-         
           </>
         )}
       </Flex>
