@@ -15,7 +15,7 @@ const App = () => {
   }
 
   // Api connection string
-  const connectionString="http://localhost:4000"
+  const connectionString="https://socialmedia-node-84id.onrender.com"
 
   // http://localhost:4000
   // https://socialmedia-node-84id.onrender.com
