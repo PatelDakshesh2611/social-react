@@ -7,6 +7,7 @@ import Myprofile from './Myprofile'
 import Showpeople from './Showpeople'
 import Notification from './Notification'
 import Protectedroutes from './Protectedroutes'
+import Chat from './Chat'
 
 const Allroutes = (props) => {
   return (
@@ -22,6 +23,7 @@ const Allroutes = (props) => {
           <Route path='/myprofile' element={<Myprofile connection={props.connectionString} id={props.id} setudata={props.setudata} setid={props.setid} imageloader={props.imageloader} usersdata={props.usersdata} setimageloader={props.setimageloader} />}></Route>
           <Route path='/showpeople' element={<Showpeople connection={props.connectionString} id={props.id} />}></Route>
           <Route path='/getnotifications' element={<Notification connection={props.connectionString} userdata={props.usersdata} />}></Route>
+          <Route path='/chat' element={<Chat connection={props.connectionString}/>}></Route>
         </Route>
         {/* <Route path='*' element={</>}>dicklesh</Route> */}
       </Routes>

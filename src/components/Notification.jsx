@@ -22,7 +22,7 @@ const Notification = (props) => {
   }, [])
   return (
     <div>
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column',marginTop:'30px' }}>
         {
           noti.length > 0 ? <Text as={'bold'} fontSize={'large'}>Requests from friends</Text> : ''
         }

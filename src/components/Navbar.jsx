@@ -3,6 +3,7 @@ import { Box, Flex, Text, IconButton, useColorModeValue, Avatar, Spinner, Spacer
 import { Link } from "react-router-dom";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { FiHome, FiUser, FiPlusSquare, FiBell, FiUserCheck } from "react-icons/fi";
+import { BsChatLeft } from "react-icons/bs";
 import ToggleDarkModeButton from "./ToggleDarkModeButton";
 
 const Navbar = (props) => {
@@ -10,7 +11,7 @@ const Navbar = (props) => {
   const color = useColorModeValue("gray.800", "white");
 
   return (
-    <Box bg={bg} color={color} boxShadow="md" px="4" mb="50px">
+    <Box bg={bg} color={color} boxShadow="md" px="4" >
       <Flex h="16" alignItems="center" justifyContent={'space-between'}>
         <Flex ml="10px" alignItems={'center'}>
         <Text fontSize={['3.3vw', '3.3vw', '1.5vw', '1.5vw']} fontWeight="semibold">Connectify</Text>
@@ -61,6 +62,15 @@ const Navbar = (props) => {
               variant="ghost"
               size={['sm', 'sm', 'md', 'md']}
               isActive={props.toggle === 'myprofile'}
+            />
+          </Link>
+          <Link to='/chat' onClick={()=>props.settoggle('chat')}>
+          <IconButton
+              aria-label="My Profile"
+              icon={<BsChatLeft />}
+              variant="ghost"
+              size={['sm', 'sm', 'md', 'md']}
+              isActive={props.toggle === 'chat'}
             />
           </Link>
         </Flex>

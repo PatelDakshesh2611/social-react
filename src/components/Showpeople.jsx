@@ -28,7 +28,7 @@ const Showpeople = (props) => {
   }, [props.id, refetch]);
 
   return (
-    <Flex flexDirection={"column"} alignItems={'center'} mt={['9px','9px','','']} mb={['60px','60px','','']}>
+    <Flex flexDirection={"column"} alignItems={'center'} mt={['9px','9px','30px','30px']} mb={['60px','60px','','']}>
       <Input
         onChange={handleSearchChange}
         placeholder='Search for friends'

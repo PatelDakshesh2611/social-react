@@ -75,7 +75,7 @@ const Homepage = (props) => {
 
   return (
     <div>
-      <Flex flexDirection={'column'} mt={['10px', '10px', '0px', '0px']} justifyContent={'center'} alignItems={'center'}>
+      <Flex flexDirection={'column'} mt={['10px', '10px', '20px', '20px']} justifyContent={'center'} alignItems={'center'}>
         {isLoading ? (
           <Flex flexDirection={'column'} width={'100%'}  alignItems={'center'} justifyContent={'center'}>
             {[...Array(5)].map((_, index) => (

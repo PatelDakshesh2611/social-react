@@ -4,7 +4,8 @@ import Navbar from './components/Navbar'
 import Allroutes from './components/Allroutes'
 import { useNavigate } from 'react-router-dom'
 import BottomNavbar from './components/BottomNavbar'
-import { useBreakpointValue } from '@chakra-ui/react';
+import { Box, IconButton, useBreakpointValue } from '@chakra-ui/react';
+import { ChatIcon } from '@chakra-ui/icons'
 const App = () => {
   const nav=useNavigate()
   const [id,setid]=useState('')
@@ -13,6 +14,7 @@ const App = () => {
     settoggle(value)
     localStorage.setItem('toggle',value)
   }
+  const isChatIconVisible = useBreakpointValue({ base: true, md: true, lg: false });
 
   // Api connection string
   const connectionString="https://socialmedia-node-84id.onrender.com"
@@ -41,6 +43,10 @@ const App = () => {
     md: BottomNavbar,
     lg: Navbar,
   });
+
+  const handleChatClick = () => {
+   nav('/chat')
+  };
  useEffect(()=>{
    checker()
  },[])
@@ -57,6 +63,18 @@ const [imageloader,setimageloader]=useState(0)
         />
       )}   
       <Allroutes connectionString={connectionString} id={id} imageloader={imageloader} setimageloader={setimageloader} setid={setid} usersdata={usersdata} setudata={setudata}></Allroutes>
+      {id && isChatIconVisible && (
+        <Box position="fixed" bottom="120px" right="16px">
+          <IconButton
+            icon={<ChatIcon />}
+            colorScheme="teal"
+            borderRadius="full"
+            size="lg"
+            onClick={handleChatClick}
+            aria-label="Open Chat"
+          />
+        </Box>
+      )}
     </div>
   )
 }

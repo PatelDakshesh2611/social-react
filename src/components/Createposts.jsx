@@ -77,7 +77,7 @@ const CreatePost = (props) => {
   };
 
   return (
-    <div style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
+    <div style={{display:'flex',justifyContent:'center',alignItems:'center',marginTop:'30px'}}>
     <Box bg={bg} color={color} w="full" maxW="600px" p="4" boxShadow="md" borderRadius="md">
       <Flex alignItems="center" justifyContent="space-between">
         <Input name="image" type="file" accept="image/*" onChange={handleImageChange} />
