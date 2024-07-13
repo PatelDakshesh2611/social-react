@@ -207,7 +207,7 @@ const Chat = (props) => {
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
                         placeholder="Type your message..."
-                        mb={2}
+                        mb={['20px','20px','3px','3px']}
                         flex="1"
                     />
                     <Button colorScheme="blue" onClick={sendMessage}>Send</Button>
