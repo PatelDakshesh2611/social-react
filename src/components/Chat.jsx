@@ -202,7 +202,7 @@ const Chat = (props) => {
                     )}
                     <div ref={messageEndRef} />
                 </Box>
-                <HStack>
+                <HStack mb={['45px','40px',"10px",'0']}>
                     <Input
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
