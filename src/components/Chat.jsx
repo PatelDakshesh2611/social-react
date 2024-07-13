@@ -106,7 +106,7 @@ const Chat = (props) => {
 
     return (
         <Box display="flex" height="92vh">
-            <VStack width="25%" bg={colorMode === 'light' ? 'gray.100' : 'gray.700'} p={4} borderRight="1px solid" borderColor="gray.200" overflowX="auto">
+            <VStack width={['36%','45%','25%','25%']} bg={colorMode === 'light' ? 'gray.100' : 'gray.700'} p={4} borderRight="1px solid" borderColor="gray.200" overflowX="auto">
                 <HStack justifyContent="space-between" width="100%" mb={4}>
                     <Text fontSize="xl">User List</Text>
                 </HStack>
@@ -127,7 +127,7 @@ const Chat = (props) => {
                         {user.img_url ? (
                             <Image
                                 borderRadius="full"
-                                boxSize="40px"
+                                boxSize={['27px','27px','38px','40px']}
                                 src={user.img_url}
                                 alt={user.name}
                                 mr={3}
@@ -135,7 +135,7 @@ const Chat = (props) => {
                         ) : (
                             <Box
                                 borderRadius="full"
-                                boxSize="40px"
+                                boxSize={['27px','27px','40px','40px']}
                                 bg="gray.400"
                                 display="flex"
                                 alignItems="center"
@@ -146,7 +146,7 @@ const Chat = (props) => {
                                 {user.name.charAt(0).toUpperCase()}
                             </Box>
                         )}
-                        <Text>{user.name}</Text>
+                        <Text fontSize={['10px','10px','17px','20px']}>{user.name}</Text>
                     </Box>
                 ))}</>:<Text>Follow peoples to start chatting</Text>
                 }
@@ -176,8 +176,8 @@ const Chat = (props) => {
                                 </Box>
                             )}
                             <VStack alignItems="flex-start">
-                                <Text fontSize="lg">{selectedUser.name}</Text>
-                                <Text fontSize="sm" color="green.400">Active</Text>
+                                <Text fontSize={['x-small','sm','md','lg']}>{selectedUser.name}</Text>
+                                <Text fontSize={['x-small','sm','md','lg']} color="green.400">Active</Text>
                             </VStack>
                         </>
                     ) : (
@@ -202,12 +202,11 @@ const Chat = (props) => {
                     )}
                     <div ref={messageEndRef} />
                 </Box>
-                <HStack mb={['45px','40px',"10px",'0']}>
+                <HStack >
                     <Input
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
-                        placeholder="Type your message..."
-                        mb={['20px','20px','3px','3px']}
+                        placeholder="Type your message..."         
                         flex="1"
                     />
                     <Button colorScheme="blue" onClick={sendMessage}>Send</Button>

@@ -64,7 +64,7 @@ const [imageloader,setimageloader]=useState(0)
       )}   
       <Allroutes connectionString={connectionString} id={id} imageloader={imageloader} setimageloader={setimageloader} setid={setid} usersdata={usersdata} setudata={setudata}></Allroutes>
       {id && isChatIconVisible && (
-        <Box position="fixed" bottom="120px" right="16px">
+        <Box position="fixed" bottom="134px" right="16px">
           <IconButton
             icon={<ChatIcon />}
             colorScheme="teal"
